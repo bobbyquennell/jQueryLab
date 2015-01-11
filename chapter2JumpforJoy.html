@@ -9,17 +9,25 @@
         <h2>Jump for Joy Sale</h2>
     </div>
     <div id="main">
-        <div><img src="images/jump1.jpg" alt=""></div>
-        <div><img src="images/jump2.jpg" alt=""></div>
-        <div><img src="images/jump3.jpg" alt=""></div>
-        <div><img src="images/jump4.jpg" alt=""></div>
-    </div>
+        <div class="guess_box">
+            <img src="images/jump1.jpg" alt=""></div>
+        <div class="guess_box">
+            <img src="images/jump2.jpg" alt=""></div>
+        <div class="guess_box">
+            <img src="images/jump3.jpg" alt=""></div>
+        <div class="guess_box">
+            <img src="images/jump4.jpg" alt=""></div>
+    </div>  
     <script src="scripts/jquery-1.11.2.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("div>img").click(function(event) {
+            $(".guess_box").click(function(event) {
                 /* Act on the event */
-                alert("you clicked me!");
+                //alert("you clicked me!");
+                var discount = Math.floor((Math.random()*5)+5);
+                var discount_msg = "<p>Your discount is: " + discount + "%</p>";
+                $(".guess_box p").remove();
+                $(this).append(discount_msg);
             });
         });
     </script>
