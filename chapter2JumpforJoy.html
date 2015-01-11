@@ -28,6 +28,7 @@
                 var discount_msg = "<p>Your discount is: " + discount + "%</p>";
                 $(".guess_box p").remove();
                 $(this).append(discount_msg);
+                $(".guess_box").unbind('click');
             });
         });
     </script>
