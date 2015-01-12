@@ -1,6 +1,15 @@
 $(document).ready(function() {
     $(".guess_box").click(checkForCode);
     hideCode();
+    $(".guess_box").hover(function() {
+        /* Stuff to do when the mouse enters the element */
+        $(this).addClass('my_hover');
+
+
+    }, function() {
+        /* Stuff to do when the mouse leaves the element */
+        $(this).removeClass('my_hover');
+    });
 });
 
 function checkForCode(){
