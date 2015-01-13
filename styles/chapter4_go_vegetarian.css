@@ -1,0 +1,55 @@
+
+.menu_wrapper{
+    width: 96%;
+    border: solid gray 1px;
+}
+
+ul li{
+    list-style-type: none;
+    display: inline;
+}
+header {
+    padding:20px 20px 40px 20px;
+    overflow: hidden;/*very interesting, need more exercise to understand this*/
+    border-bottom: 1px solid gray;
+
+}
+nav {
+    position:relative;
+    /*list-style-type: none;*/
+    margin-right:30px;
+    float: right;
+}
+
+
+.left_col{
+    /*display: table-cell;*/
+    float: left;
+    width:41%;
+    border-right: solid 1px;
+    height: 1000px;
+    padding:4%;
+}
+.right_col{
+    /*display: table-cell;*/
+    position: relative;
+    width: 41%;
+    padding:4%;
+    float: right;
+    text-align: left;
+    border-left: solid 1px;
+    height: 1000px;
+}
+footer{
+clear:both; 
+}
+.menu_entrees li{
+    list-style-type: none;
+    padding-left: 10px;
+}
+.menu_list{
+    padding-bottom: 15px;
+}
+.menu_list li{
+    padding-left:15px;
+}
