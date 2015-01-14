@@ -58,6 +58,13 @@ clear:both;
 .veg_leaf{
     list-style-image:url('../images/leaf.png');
 }
+/* this test code is from Head First HTML&CSS 2nd page632 "http://wickedlysmart.com/hfhtmlcss/hfhtmlcss.zip" */
+ul.test li{
+  list-style-image: url(../images/backpack.gif);
+  /*display: inline;*//* if we let li display inline ,then no images will display as a customered marker */
+  padding-top:      5px;
+  margin-left:      10px;
+}
 
 
 
