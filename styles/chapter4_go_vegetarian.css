@@ -51,5 +51,13 @@ clear:both;
     padding-bottom: 15px;
 }
 .menu_list li{
+    display: inline;
+    /*list-style-type: none;*/
     padding-left:15px;
 }
+.veg_leaf{
+    list-style-image:url('../images/leaf.png');
+}
+
+
+
