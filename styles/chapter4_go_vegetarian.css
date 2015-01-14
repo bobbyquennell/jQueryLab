@@ -6,7 +6,7 @@
 
 ul li{
     list-style-type: none;
-    display: inline;
+    /*display: inline;*//* bugfix-this line will not allow the leaf mark show, need to figure out why IMPORTANT!!!*/
 }
 header {
     padding:20px 20px 40px 20px;
