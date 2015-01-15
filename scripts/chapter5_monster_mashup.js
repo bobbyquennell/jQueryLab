@@ -48,20 +48,17 @@ function mouthClickHandler(){
 function lightning(){
     $("#lightning1").fadeIn("fast",function(){
         console.log("lighting1 fadeIn!");
+    }).fadeOut("fast",function(){
+        console.log("lighting1 fadeOut!");
     });
     $("#lightning2").fadeIn("fast", function() {
         console.log("lightning2 fadeIn!");
+    }).fadeOut("fast", function() {
+        console.log("lightning2 fadeOut!");
     });
     $("#lightning3").fadeIn("fase", function() {
         console.log("lightning3 fadeIn!");
-    });
-     $("#lightning1").fadeOut("fast",function(){
-        console.log("lighting1 fadeOut!");
-    });
-    $("#lightning2").fadeOut("fast", function() {
-        console.log("lightning2 fadeOut!");
-    });
-    $("#lightning3").fadeOut("fase", function() {
+    }).fadeOut("fase", function() {
         console.log("lightning3 fadeOut!");
     });
 }
