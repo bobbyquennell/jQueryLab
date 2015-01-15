@@ -9,7 +9,10 @@ $(document).ready(function() {
     $("#nose").click(noseClickHandler);
     $("#mouth").click(mouthClickHandler);
     //setInterval
-    var intervalID = setInterval(lightning, 10000);
+    //var intervalID = setInterval(lightning, 10000);
+    lightning_one();
+    lightning_two();
+    lightning_three();
 });
 function headClickHandler(){
    headClickCnt += 1;
@@ -45,21 +48,28 @@ function mouthClickHandler(){
    else{ console.log("click mouth "+ mouthClickCnt + " times");}
 
 }
-function lightning(){
-    $("#lightning1").fadeIn("fast",function(){
+function lightning_one(){
+    $("#lightning1").fadeIn("250",function(){
         console.log("lighting1 fadeIn!");
-    }).fadeOut("fast",function(){
+    }).fadeOut("250",function(){
         console.log("lighting1 fadeOut!");
     });
+    setTimeout(lightning_one, 4000);
+}
+function lightning_two(){
     $("#lightning2").fadeIn("fast", function() {
         console.log("lightning2 fadeIn!");
     }).fadeOut("fast", function() {
         console.log("lightning2 fadeOut!");
     });
-    $("#lightning3").fadeIn("fase", function() {
+    setTimeout(lightning_two, 5000);
+}
+function lightning_three(){
+    $("#lightning3").fadeIn("fast", function() {
         console.log("lightning3 fadeIn!");
-    }).fadeOut("fase", function() {
+    }).fadeOut("fast", function() {
         console.log("lightning3 fadeOut!");
     });
+    setTimeout(lightning_three, 7000);
 }
 
