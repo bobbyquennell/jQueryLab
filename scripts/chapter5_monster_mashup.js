@@ -19,33 +19,49 @@ function headClickHandler(){
    if(headClickCnt >= 9){
      console.log("nineth click head, rewind back");
      headClickCnt = 0;
+     $("#head").animate({left:"+=2936px"}, 400);
    }
-   else{ console.log("click head "+ headClickCnt + " times");}
+   else{ 
+     console.log("click head "+ headClickCnt + " times");
+     $("#head").animate({left:"-=367px"},400);
+  }
 }
 function eyeClickHandler(){
    eyesClickCnt += 1;
    if(eyesClickCnt >= 9){
      console.log("nineth click eyes, rewind back");
      eyesClickCnt = 0;
+     $("#eyes").animate({left:"+=2936px"}, 400);
    }
-   else{ console.log("click eyes "+ eyesClickCnt + " times");}
+   else{ 
+     console.log("click eyes "+ eyesClickCnt + " times");
+     $("#eyes").animate({left:"-=367px"},400);
+   }
 }
 function noseClickHandler(){
     noseClickCnt += 1;
    if(noseClickCnt >=9){
      console.log("nineth click nose, rewind back");
      noseClickCnt = 0;
+     $("#nose").animate({left:"+=2936px"}, 400);
    }
-   else{ console.log("click nose "+ noseClickCnt + " times");}
+   else{ 
+      console.log("click nose "+ noseClickCnt + " times");
+      $("#nose").animate({left:"-=367px"},400);
+   }
 
 }
 function mouthClickHandler(){
     mouthClickCnt += 1;
-   if(mouthClickCnt >= 9){
-     console.log("nineth click mouth, rewind back");
-     mouthClickCnt = 0;
-   }
-   else{ console.log("click mouth "+ mouthClickCnt + " times");}
+    if(mouthClickCnt >= 9){
+      console.log("nineth click mouth, rewind back");
+      mouthClickCnt = 0;
+      $("#mouth").animate({left:"+=2936px"}, 400);
+    }
+    else{ 
+      console.log("click mouth "+ mouthClickCnt + " times");
+      $("#mouth").animate({left:"-=367px"},400);
+    }
 
 }
 function lightning_one(){
