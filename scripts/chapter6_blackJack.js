@@ -100,6 +100,7 @@ function deal(){
         resetGame();
     });
 }
+//Return a random number between 0 (inclusive) and num (exclusive):
 function getRandom(num){
     return Math.floor(Math.random()*num);
 }
@@ -107,7 +108,7 @@ function hit(){
     var usedIdx, newcardIdx;
     //get a new card from deck
     do{
-        newcardIdx = getRandom(51);
+        newcardIdx = getRandom(52);
         usedIdx = $.inArray(newcardIdx, used_cards);
         if(usedIdx < 0)
             used_cards[used_cards.length] = newcardIdx;
@@ -155,7 +156,7 @@ function checkRule(){
     else if((totalValue < 21)&&(cardsinHand.length == 5)){
         //wins! game over
         console.log('you wins! dealt 5 cards but total is less than 21');
-        $('#hdrResult').empty().append('You win!').css({
+        $('#hdrResult').empty().append('5 card trick!').css({
             color: 'green'});
         $('#my_hand').append('<img id="resultImage" src="images/check.png">');
         resetGame();
@@ -181,6 +182,10 @@ function resetGame(){
         used_cards.length = 0;
         cardsinHand.length = 0;
         $('#btnStick').remove();
+        ///////////////// there is an another way to lead to the same result 
+        ///using $("selector").toggle() method to hide old button and 
+        ///active new button feature, see HeadFirst jQuery Chapter 6 p244
+        ///and my study log at evernote: HF jQuery chapter 6
         $("#btnDeal").unbind('click');
         $("#btnDeal").click(function(event) {
             /* Act on the event */
