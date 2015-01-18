@@ -126,6 +126,7 @@ function displayCardsinHand(newcardIdx){
     var imageFolder = "/cards/"+deck[newcardIdx].suit;
     var imageFath = "images" + imageFolder + imageName;
     $("#my_hand").append('<img src='+imageFath+'>');
+    $('#my_hand>img').last().fadeOut(500).fadeIn(500);
 }
 function checkRule(){
     var totalValue = 0;
