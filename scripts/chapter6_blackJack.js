@@ -80,9 +80,25 @@ function deal(){
     $('#btnDeal').empty().append('<img src="images/deck_small.jpg">');
     $('#my_hand').empty();
     $('#hdrResult').empty();
+    
     for(var i = 0; i< 2; i++){
         hit();
     }
+    //add stick/stand feature
+    $('#controls').append('<div id="btnStick"><img src="images/stick_small.jpg"></div>');
+    $('#btnStick').css({
+        position: 'absolute',
+        top: '380px',
+        left:'340px'
+    });
+    $('#btnStick').click(function(event) {
+        /* Act on the event */
+        $('#hdrResult').empty().append('Stick!').css({
+            color: 'green'});
+        $('#my_hand').append('<img id="resultImage" src="images/check.png">');
+        
+        resetGame();
+    });
 }
 function getRandom(num){
     return Math.floor(Math.random()*num);
@@ -138,6 +154,10 @@ function checkRule(){
     else if((totalValue < 21)&&(cardsinHand.length == 5)){
         //wins! game over
         console.log('you wins! dealt 5 cards but total is less than 21');
+        $('#hdrResult').empty().append('You win!').css({
+            color: 'green'});
+        $('#my_hand').append('<img id="resultImage" src="images/check.png">');
+        resetGame();
     }
     else{
         //no conditions above is met, player can ask for another card.
@@ -159,6 +179,7 @@ function resetGame(){
         //restart game, clear all storage
         used_cards.length = 0;
         cardsinHand.length = 0;
+        $('#btnStick').remove();
         $("#btnDeal").unbind('click');
         $("#btnDeal").click(function(event) {
             /* Act on the event */
