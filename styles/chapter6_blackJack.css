@@ -14,3 +14,14 @@ h3{
 .current_hand{
     float: left;
 }
+#hdrResult{
+    color: red;
+}
+#resultImage{
+    position: absolute;
+    /*display: block;*/
+    left: 20px;
+    top: 100px;
+    height: 250px;
+    width: 500px;
+}
