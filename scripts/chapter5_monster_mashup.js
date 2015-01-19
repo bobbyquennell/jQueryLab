@@ -27,7 +27,8 @@ function getRandom(num){//return [1, num]
 function randomizeFace(){
       //random head
       var idx,i,moveSteps,currentPosition,targetPosition, moveStepsInPixel;
-    for(idx = 0; idx<4; idx++){
+    ///for(idx = 0; idx<4; idx++){
+    $(".face").each(function(idx, el) {
         moveSteps = getRandom(monsterNumInTotal);
         currentPosition = facePartArr[idx].partClickCnt;
         targetPosition  = facePartArr[idx].partClickCnt + moveSteps;
@@ -38,22 +39,22 @@ function randomizeFace(){
         else{
           moveSteps = targetPosition - currentPosition;
         }
-        if( moveSteps != 0){
+        if( moveSteps !== 0){
           console.log("moved " + facePartArr[idx].partName + " " + moveSteps + " steps randomly");
           facePartArr[idx].partClickCnt = targetPosition;
           moveStepsInPixel = 367*moveSteps;// can be a negative value, means move to right!
-          $("#"+facePartArr[idx].partName).animate({left:"-="+moveStepsInPixel}, 400);
+          $(this).animate({left:"-="+moveStepsInPixel}, 400);
         }
         else{ 
-          console.log("no need to move "+ facePartArr[idx].partName + " this time");
+          console.log("no need to move "+ el.id + " this time");
         }
-    }
+    });
 
 }
 function resetFace(){
   $(".face").animate({left:0}, 200);
   
-  for(part in facePartArr){
+  for(var part in facePartArr){
     facePartArr[part].partClickCnt = 0;
   }
 }
