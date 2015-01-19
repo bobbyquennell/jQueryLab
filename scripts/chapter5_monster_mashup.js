@@ -3,6 +3,7 @@ var eyesClickCnt = 0;
 var noseClickCnt = 0;
 var mouthClickCnt = 0;
 var lightningOnetimerID,lightningTwotimerID,lightningThreetimerID;
+var monsterNumInTotal = 10;
 $(document).ready(function() {
     $("#head").click(faceClickHandler);
     $("#eyes").click(faceClickHandler);
@@ -27,10 +28,10 @@ function randomizeFace(){
       //random head
       var idx,i,moveSteps,currentPosition,targetPosition, moveStepsInPixel;
     for(idx = 0; idx<4; idx++){
-        moveSteps = getRandom(9);
+        moveSteps = getRandom(monsterNumInTotal);
         currentPosition = facePartArr[idx].partClickCnt;
         targetPosition  = facePartArr[idx].partClickCnt + moveSteps;
-        targetPosition %= 9;
+        targetPosition %= monsterNumInTotal;
         if(targetPosition == currentPosition){
           moveSteps = 0;
         }
@@ -41,7 +42,7 @@ function randomizeFace(){
           console.log("moved " + facePartArr[idx].partName + " " + moveSteps + " steps randomly");
           facePartArr[idx].partClickCnt = targetPosition;
           moveStepsInPixel = 367*moveSteps;// can be a negative value, means move to right!
-          $("#"+facePartArr[idx].partName).animate({left:"-="+moveStepsInPixel+"px"}, 400);
+          $("#"+facePartArr[idx].partName).animate({left:"-="+moveStepsInPixel}, 400);
         }
         else{ 
           console.log("no need to move "+ facePartArr[idx].partName + " this time");
@@ -100,10 +101,10 @@ function faceClickHandler(e){
 
   }
   facePartArr[facePartIdx].partClickCnt += 1;
-  if( facePartArr[facePartIdx].partClickCnt >= 9){
-     console.log("nineth click " + objId + " , rewind back");
+  if( facePartArr[facePartIdx].partClickCnt >= monsterNumInTotal){
+     console.log(monsterNumInTotal +" click " + objId + " , rewind back");
      facePartArr[facePartIdx].partClickCnt = 0;
-     $(this).animate({left:"+=2936px"}, 400);
+     $(this).animate({left:"0px"}, 400);
    }
    else{ 
      console.log("click "+ objId + " "+ facePartArr[facePartIdx].partClickCnt + " times");
@@ -114,10 +115,10 @@ function faceClickHandler(e){
 
 function headClickHandler(){
    headClickCnt += 1;
-   if(headClickCnt >= 9){
-     console.log("nineth click head, rewind back");
+   if(headClickCnt >= monsterNumInTotal){
+     console.log(monsterNumInTotal + " click head, rewind back");
      headClickCnt = 0;
-     $("#head").animate({left:"+=2936px"}, 400);
+     $("#head").animate({left:"0px"}, 400);
    }
    else{ 
      console.log("click head "+ headClickCnt + " times");
@@ -126,10 +127,10 @@ function headClickHandler(){
 }
 function eyeClickHandler(){
    eyesClickCnt += 1;
-   if(eyesClickCnt >= 9){
-     console.log("nineth click eyes, rewind back");
+   if(eyesClickCnt >= monsterNumInTotal){
+     console.log(monsterNumInTotal + " click eyes, rewind back");
      eyesClickCnt = 0;
-     $("#eyes").animate({left:"+=2936px"}, 400);
+     $("#eyes").animate({left:"0px"}, 400);
    }
    else{ 
      console.log("click eyes "+ eyesClickCnt + " times");
@@ -138,10 +139,10 @@ function eyeClickHandler(){
 }
 function noseClickHandler(){
     noseClickCnt += 1;
-   if(noseClickCnt >=9){
-     console.log("nineth click nose, rewind back");
+   if(noseClickCnt >=monsterNumInTotal){
+     console.log(monsterNumInTotal + " click nose, rewind back");
      noseClickCnt = 0;
-     $("#nose").animate({left:"+=2936px"}, 400);
+     $("#nose").animate({left:"0px"}, 400);
    }
    else{ 
       console.log("click nose "+ noseClickCnt + " times");
@@ -151,10 +152,10 @@ function noseClickHandler(){
 }
 function mouthClickHandler(){
     mouthClickCnt += 1;
-    if(mouthClickCnt >= 9){
-      console.log("nineth click mouth, rewind back");
+    if(mouthClickCnt >= monsterNumInTotal){
+      console.log(monsterNumInTotal + " click mouth, rewind back");
       mouthClickCnt = 0;
-      $("#mouth").animate({left:"+=2936px"}, 400);
+      $("#mouth").animate({left:"0px"}, 400);
     }
     else{ 
       console.log("click mouth "+ mouthClickCnt + " times");
