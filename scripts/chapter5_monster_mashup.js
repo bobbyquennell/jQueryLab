@@ -2,7 +2,7 @@ var headClickCnt = 0;
 var eyesClickCnt = 0;
 var noseClickCnt = 0;
 var mouthClickCnt = 0;
-
+var lightningOnetimerID,lightningTwotimerID,lightningThreetimerID;
 $(document).ready(function() {
     $("#head").click(headClickHandler);
     $("#eyes").click(eyeClickHandler);
@@ -14,6 +14,24 @@ $(document).ready(function() {
     lightning_two();
     lightning_three();
 });
+/////////chapter 7 solve the lightning issue by using window.onfocus/.onblur properties
+window.onfocus = onfocusResponse;
+window.onblur = onblurResponse;
+function onfocusResponse(){
+    // lightning_one();
+    // lightning_two();
+    // lightning_three();
+    lightningOnetimerID = setTimeout(lightning_one, 4000);
+    lightningTwotimerID = setTimeout(lightning_two, 5000);
+    lightningThreetimerID = setTimeout(lightning_three, 7000);
+
+}
+function onblurResponse(){
+  clearTimeout(lightningOnetimerID);
+  clearTimeout(lightningTwotimerID);
+  clearTimeout(lightningThreetimerID);
+}
+////////chapter 7 solve the lightning issue by using window.onfocus/.onblur properties
 function headClickHandler(){
    headClickCnt += 1;
    if(headClickCnt >= 9){
@@ -70,7 +88,7 @@ function lightning_one(){
     }).fadeOut("250",function(){
         console.log("lighting1 fadeOut!");
     });
-    setTimeout(lightning_one, 4000);
+    lightningOnetimerID = setTimeout(lightning_one, 4000);
 }
 function lightning_two(){
     $("#lightning2").fadeIn("fast", function() {
@@ -78,7 +96,7 @@ function lightning_two(){
     }).fadeOut("fast", function() {
         console.log("lightning2 fadeOut!");
     });
-    setTimeout(lightning_two, 5000);
+    lightningTwotimerID = setTimeout(lightning_two, 5000);
 }
 function lightning_three(){
     $("#lightning3").fadeIn("fast", function() {
@@ -86,6 +104,6 @@ function lightning_three(){
     }).fadeOut("fast", function() {
         console.log("lightning3 fadeOut!");
     });
-    setTimeout(lightning_three, 7000);
+    lightningThreetimerID = setTimeout(lightning_three, 7000);
 }
 
