@@ -4,10 +4,10 @@ var noseClickCnt = 0;
 var mouthClickCnt = 0;
 var lightningOnetimerID,lightningTwotimerID,lightningThreetimerID;
 $(document).ready(function() {
-    $("#head").click(headClickHandler);
-    $("#eyes").click(eyeClickHandler);
-    $("#nose").click(noseClickHandler);
-    $("#mouth").click(mouthClickHandler);
+    $("#head").click(faceClickHandler);
+    $("#eyes").click(faceClickHandler);
+    $("#nose").click(faceClickHandler);
+    $("#mouth").click(faceClickHandler);
     //setInterval
     //var intervalID = setInterval(lightning, 10000);
     lightning_one();
@@ -32,6 +32,44 @@ function onblurResponse(){
   clearTimeout(lightningThreetimerID);
 }
 ////////chapter 7 solve the lightning issue by using window.onfocus/.onblur properties
+var facePartArr = [{partName:'head', partClickCnt:0},{partName:'eyes', partClickCnt:0},{partName:'nose', partClickCnt:0},{partName:'mouth', partClickCnt:0}];
+function faceClickHandler(e){
+  //var objId = $(this).attr('id');///option1: important!!! how to get JQuery get element id from event.target
+  //var objId = e.target.id;//option2:it return the img element , not div#head
+  var objId = e.currentTarget.id;// option3, it also works as option 1;
+  /////for more information about above issue, see evernote studylog:
+  ///  Difference between $(this) and event.target Part 1/2
+  var logInfo,facePartIdx;
+  switch(objId){
+    case "head":
+        facePartIdx = 0;
+        break;
+    case "eyes":
+        facePartIdx = 1;
+        break;
+    case "nose":
+        facePartIdx = 2;
+        break;
+    case "mouth": 
+        facePartIdx = 3;
+        break;
+    default:
+      break;
+
+  }
+  facePartArr[facePartIdx].partClickCnt += 1;
+  if( facePartArr[facePartIdx].partClickCnt >= 9){
+     console.log("nineth click " + objId + " , rewind back");
+     facePartArr[facePartIdx].partClickCnt = 0;
+     $(this).animate({left:"+=2936px"}, 400);
+   }
+   else{ 
+     console.log("click "+ objId + " "+ facePartArr[facePartIdx].partClickCnt + " times");
+     $(this).animate({left:"-=367px"},400);
+  }
+
+}
+
 function headClickHandler(){
    headClickCnt += 1;
    if(headClickCnt >= 9){
