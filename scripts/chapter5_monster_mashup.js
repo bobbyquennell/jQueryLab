@@ -8,12 +8,48 @@ $(document).ready(function() {
     $("#eyes").click(faceClickHandler);
     $("#nose").click(faceClickHandler);
     $("#mouth").click(faceClickHandler);
+
+    ////add new features for chapter 7 19-Jan-2015--begin
+    $("#btnRandm").click(randomizeFace);
+    $("#btnRst").click(resetFace);
+    ////////add new features for chapter 7 19-Jan-2015--end
+    
     //setInterval
     //var intervalID = setInterval(lightning, 10000);
     lightning_one();
     lightning_two();
     lightning_three();
 });
+function getRandom(num){//return [1, num]
+  return Math.floor(Math.random()*num + 1);
+}
+function randomizeFace(){
+      //random head
+      var idx,i;
+      idx = getRandom(9);
+      for(i = 0; i < idx; i++){
+        $("#head").trigger('click');
+      }
+      idx = getRandom(9);
+      for(i = 0; i < idx; i++){
+        $("#eyes").trigger('click');
+      }
+      idx = getRandom(9);
+      for(i = 0; i < idx; i++){
+        $("#nose").trigger('click');
+      }
+      idx = getRandom(9);
+      for(i = 0; i < idx; i++){
+        $("#mouth").trigger('click');
+      }
+}
+function resetFace(){
+  $(".face").animate({left:0}, 200);
+  
+  for(part in facePartArr){
+    facePartArr[part].partClickCnt = 0;
+  }
+}
 /////////chapter 7 solve the lightning issue by using window.onfocus/.onblur properties
 window.onfocus = onfocusResponse;
 window.onblur = onblurResponse;

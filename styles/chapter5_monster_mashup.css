@@ -3,10 +3,22 @@ body{
     margin-top: 20px;
 }
 header{
-    position: absolute;
+    position: relative;
     left:200px;
     top: 19px;
     z-index: 4;
+}
+button{
+    position: absolute;
+}
+#btnRandm{
+    top:50px;
+    left:300px;
+}
+#btnRst{
+    width: 50px;
+    top:50px;
+    left:380px;
 }
 
 p{
