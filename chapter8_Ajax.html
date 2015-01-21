@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2010 Race Finishers</title>
+    <link rel="stylesheet" href="styles/chapter8_Ajax.css">
+</head>
+<body>
+    <header>
+        <h2>2011 Race Finishers!</h2>
+    </header>
+    <div id="main">
+        <ul class="idTabs">
+            <li><a href="#finishers">All Finishers</a></li>
+            <li><a href="#male">Male Finishers</a></li>
+            <li><a href="#female">Femal Finishers</a></li>
+        </ul>
+        <div id="finishers">
+            <h4>All Finishers</h4>
+            <ul id="all">
+            </ul>
+        </div>
+        <div id="male">
+            <h4>Male Finishers</h4>
+            <ul id="finishers_m"></ul>
+        </div>
+        <div id="female">
+            <h4>Femal Finishers</h4>
+            <ul id="finishers_f"></ul>
+        </div>
+    </div>
+
+    <footer>
+        <h4>Congratulations to all our finishers!</h4>
+        Last Updated: <div id="updatedTime"></div>
+    </footer>
+    <script src="scripts/jquery-1.11.2.min.js"></script>
+    <script src="scripts/chapter8_Ajax.js"></script>
+    <script src="scripts/jquery.idTabs.min.js"></script>
+</body>
+</html>
