@@ -1,12 +1,6 @@
 $(document).ready(function() {
-    $.ajax({
-        url: 'finishers.xml',
-        cache: false,
-        dataType: 'xml',
-        success: function(xml){
-            
-        }
-    });
+    
+    getXMLRacers();
     
     getTime();
     function getTime(){
@@ -28,3 +22,41 @@ $(document).ready(function() {
 
     }
 });
+
+function getXMLRacers(){
+    $.ajax({
+        url: 'finishers.xml',
+        type: 'GET',
+        dataType: 'xml',
+        success: function(xml){
+            // $('#finishers_m').empty();
+            // $('#finishers_f').empty();
+            // $('#finishers_all').empty();
+            // $(xml).find('runner').each(function(index, el) {
+            //     var info = '<li>Name: ' + $(this).find('fname')
+            // });
+            var result;
+            console.log("I got xml: ");
+            console.log(xml);
+            var runners = $(xml).find("runner");
+            runners.each(function(index, el) {
+                this.fname = $(this).find('fname');
+                this.lname = $(this).find('lname');
+                this.gender = $(this).find('gender');
+                this.runningTime = $(this).find('time'); 
+                var result = this.fname.text() + ' ' + this.lname.text()+' ' +this.gender.text() + ' ' + this.runningTime.text();
+                console.log(result);
+                var info = "<li>"+result+"</li>";
+                $("#finishers_all").append(info);
+                if(this.gender.text() == 'm'){
+                    $(info).appendTo('#finishers_m');
+                }
+                else{
+                    $(info).appendTo('#finishers_f');
+                }
+            });
+        }
+    });
+
+    
+}
