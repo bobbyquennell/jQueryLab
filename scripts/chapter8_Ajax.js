@@ -40,15 +40,12 @@ function getXMLRacers(){
             console.log(xml);
             var runners = $(xml).find("runner");
             runners.each(function(index, el) {
-                this.fname = $(this).find('fname');
-                this.lname = $(this).find('lname');
-                this.gender = $(this).find('gender');
-                this.runningTime = $(this).find('time'); 
-                var result = this.fname.text() + ' ' + this.lname.text()+' ' +this.gender.text() + ' ' + this.runningTime.text();
+                var result = $(this).find('fname').text() + ' ' + $(this).find('lname').text()+ ' ' + 
+                $(this).find('gender').text() + ' ' + $(this).find('time').text();
                 console.log(result);
                 var info = "<li>"+result+"</li>";
                 $("#finishers_all").append(info);
-                if(this.gender.text() == 'm'){
+                if($(this).find('gender').text() == 'm'){
                     $(info).appendTo('#finishers_m');
                 }
                 else{
