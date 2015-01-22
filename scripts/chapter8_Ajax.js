@@ -9,8 +9,8 @@ $(document).ready(function() {
     If you’re waiting on information from another server, or
     waiting on user interaction, setInterval could call your
     function again before you’re ready. Your functions may not always
-    return in the order that you called them.
-    startAJAXCalls(); */
+    return in the order that you called them.*/
+    startAJAXCalls();
 
 });
 function startAJAXCalls(){
