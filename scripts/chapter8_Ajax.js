@@ -11,8 +11,19 @@ $(document).ready(function() {
     function again before you’re ready. Your functions may not always
     return in the order that you called them.*/
     startAJAXCalls();
-
+    showFrequency();
 });
+function showFrequency(){
+    $("#freq").html('Page refreshes every ' + FREQ + " second(s).");
+}
+function getTimeAjax(){
+    $("#updatedTime").load('chapter8_time.php',{
+    param1: "value1", param2: "value2"} ,
+        function(){
+        /* Stuff to do after the page is loaded */
+    });
+    
+}
 function startAJAXCalls(){
     $.ajax({
         url:'finishers.xml',
@@ -66,5 +77,5 @@ function getXMLRacers(xml){
         }
     });
         
-    getTime();
+    getTimeAjax();
 }
