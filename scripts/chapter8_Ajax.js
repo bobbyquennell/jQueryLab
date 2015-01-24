@@ -17,11 +17,7 @@ function showFrequency(){
     $("#freq").html('Page refreshes every ' + FREQ + " second(s).");
 }
 function getTimeAjax(){
-    $("#updatedTime").load('chapter8_time.php',{
-    param1: "value1", param2: "value2"} ,
-        function(){
-        /* Stuff to do after the page is loaded */
-    });
+    $("#updatedTime").load('chapter8_time.php');
     
 }
 function startAJAXCalls(){
