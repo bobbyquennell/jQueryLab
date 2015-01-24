@@ -1,4 +1,5 @@
 var FREQ = 10;
+var isFreshStop =false;
 $(document).ready(function() {
     
     //var intervalID = setInterval(getXMLRacers, 5000); 
@@ -10,6 +11,18 @@ $(document).ready(function() {
     waiting on user interaction, setInterval could call your
     function again before you’re ready. Your functions may not always
     return in the order that you called them.*/
+    $("#btnStopFresh").click(function(event) {
+            isFreshStop = true;
+            $("#freq").html('Updates paused');
+    });
+    $("#btnStartFresh").click(function(event) {
+        if(isFreshStop === true){
+            isFreshStop = false;
+            setTimeout(startAJAXCalls, FREQ*1000);
+            showFrequency();
+        }
+
+    });
     startAJAXCalls();
     showFrequency();
 });
@@ -27,7 +40,9 @@ function startAJAXCalls(){
         dataType:'xml',
         success:function(xml){
              getXMLRacers(xml);
-             setTimeout(startAJAXCalls, FREQ*1000);
+             if(isFreshStop === false){
+                setTimeout(startAJAXCalls, FREQ*1000);
+            }
         }
     });
 }
