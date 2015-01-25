@@ -15,6 +15,7 @@
             <li><a href="#finishers">All Finishers</a></li>
             <li><a href="#male">Male Finishers</a></li>
             <li><a href="#female">Femal Finishers</a></li>
+            <li><a href="#new">Add New Finisher</a></li>
         </ul>
         <div id="finishers">
             <h4>All Finishers</h4>
@@ -28,6 +29,27 @@
         <div id="female">
             <h4>Femal Finishers</h4>
             <ul id="finishers_f"></ul>
+        </div>
+        <div id="new">
+            <h4>Add New Finisher</h4>
+            <form action="chapter9_service.php" id="addRunner" name="addRunner" method="POST">
+                <label for="txtFirstName">First Name: </label>
+                <input type="text" name="txtFirstName" id="txtFirstName"/><br><br>
+                <label for="txtLastName">Last Name: </label>
+                <input type="text" id="txtLastName" name="txtLastName"><br><br>
+                <label for="ddlGender">Gender: </label>
+                <select name="ddlGender" id="ddlGender">
+                    <option value="">--Please Select--</option>
+                    <option value="f">Femal</option>
+                    <option value="m">Male</option>
+                </select><br><br>
+                Finish Time:
+                <input type="text" id="txtMinutes" name="txtMinutes" size="10" maxlength="2"/>(Minutes)
+                <input type="text" id="txtSeconds" name="txtSeconds" size="10" maxlength="2"/>(Seconds)
+                <br><br>
+                <button id="btnSave" type="submit" name="btnSave">Add Runner</button>
+                <input type="hidden" id="action" name="action" value="addRunner">
+            </form>
         </div>
     </div>
 
