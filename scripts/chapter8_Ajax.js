@@ -23,9 +23,32 @@ $(document).ready(function() {
         }
 
     });
+    $("#btnSave").click(function(event) {
+        /* serialize the data collect from form */
+        var serializeResult = $("#addRunner").serializeArray();
+        /* $.post to server */
+        $.post('chapter9_service.php', serializeResult, function(json) {
+            if (json.status == "fail") {
+                alert(json.message);
+            }
+            if(json.status == "success"){
+                alert(json.message);
+                clearInputs();
+            }
+        }, "json");
+    });
+    $("#addRunner").submit(function(event) {
+        return false;
+    });
     startAJAXCalls();
     showFrequency();
 });
+
+function clearInputs(){
+    $("#addRunner:input").each(function(index, el) {
+        $(this).val('');
+    });
+}
 function showFrequency(){
     $("#freq").html('Page refreshes every ' + FREQ + " second(s).");
 }
