@@ -113,3 +113,16 @@ function getXMLRacers(xml){
         
     getTimeAjax();
 }
+function getDBRacers(){
+    $.ajax({
+        url: 'chapter9_service.php',
+        type: 'default GET (Other values: POST)',
+        dataType: 'json',
+        data: json,
+        success: function(json){
+
+        }
+    });
+
+    
+}

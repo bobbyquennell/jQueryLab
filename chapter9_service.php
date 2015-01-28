@@ -8,10 +8,11 @@
     }
     $query = "select first_name, last_name, gender, finish_time from runners order by finish_time asc";
     $result = db_connection($query);
-
+    $myArray = array();
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-        print_r($row);
-        # code...
+        # print_r($row);
+        array_push($myArray, $row);//add new items onto the end of an array
     }
+    echo json_encode($myArray);//return a JSON object to whatever called the file--i.e., a browser or an AJAX call, etc
 
 ?>
