@@ -125,7 +125,7 @@ function getXMLRacers(xml){
 }
 function getDBRacers(){
     /*   version 1: using standard ajax method */
-    $.ajax({
+    /*$.ajax({
         url: "chapter9_service.php",// the url must be quoted by "" not ''
         type: 'GET',
         dataType: 'json',
@@ -135,7 +135,7 @@ function getDBRacers(){
                 $('#finishers_f').empty();
                 $('#finishers_all').empty();
                 $.each(json, function(index, val) {
-                    /* iterate through array or object */
+                    /* iterate through array or object *
                     var result = this.first_name + ' ' + this.last_name + ' ' + this.gender + ' ' + this.finish_time;
                     console.log(result);
                     var info = "<li>"+result+"</li>";
@@ -146,31 +146,22 @@ function getDBRacers(){
                     else{
                         $(info).appendTo('#finishers_f');
                     }
-
                 });
-
-        }
-            
+        }           
     }
-  });
+  });*/
     /*   version 2: using shorthand ajax method: $.getJSON()
     note: $.each() is used for non-jQuery collection, and .each() is used for jQuery collection--elements mathced with your selectors
     for more information about these two method, please refer to: http://learn.jquery.com/using-jquery-core/iterating/
     or https://www.evernote.com/l/AD5tsgIvgOdPZb38XV-IBiKGG2BcY_cnZ_g
      */
-    /*$.getJSON("chapter9_service.php", function(json) {
-            //var runners = $.parseJSON(json);
-            //alert(runners);
-            // json.each(function(index, el) {
-            //     var runner = $.parseJSON(this);
-            //     alert(runner);
-            // });
+    $.getJSON("chapter9_service.php", function(json) {
         if(json.length > 0){
             $('#finishers_m').empty();
             $('#finishers_f').empty();
             $('#finishers_all').empty();
             $.each(json, function(index, val) {
-                /* iterate through array or object *
+                /* iterate through array or object */
                 var result = this.first_name + ' ' + this.last_name + ' ' + this.gender + ' ' + this.finish_time;
                 console.log(result);
                 var info = "<li>"+result+"</li>";
@@ -185,7 +176,7 @@ function getDBRacers(){
             });
 
         }
-    });*/
+    });
     getTimeAjax();
     
 }
