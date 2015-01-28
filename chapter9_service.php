@@ -11,8 +11,9 @@
     $myArray = array();
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
         # print_r($row);
-        array_push($myArray, $row);//add new items onto the end of an array
+        //array_push($myArray, $row);//add new items onto the end of an array
+        array_push($myArray, array('fname' => $row['first_name'], 'lname' => $row['last_name'], 'gender' => $row['gender'], 'time'=>$row['finish_time']));
     }
-    echo json_encode($myArray);//return a JSON object to whatever called the file--i.e., a browser or an AJAX call, etc
+    echo json_encode(array("runners"=>$myArray));//return a JSON object to whatever called the file--i.e., a browser or an AJAX call, etc
 
 ?>
