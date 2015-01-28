@@ -124,33 +124,54 @@ function getXMLRacers(xml){
     getTimeAjax();
 }
 function getDBRacers(){
-    // $.ajax({
-    //     url: 'chapter9_service.php',
-    //     type: 'default GET (Other values: POST)',
-    //     dataType: 'json',
-    //     success: function(json){
-    //         alert("we've got " + json.length + "runners from database");
-    //         $(json).each(function(index, el) {
-    //             var runner = $.parseJSON(this);
-    //             alert(runner);
-    //         });
+    /*   version 1: using standard ajax method */
+    $.ajax({
+        url: "chapter9_service.php",// the url must be quoted by "" not ''
+        type: 'GET',
+        dataType: 'json',
+        success: function(json){
+            if(json.length > 0){
+                $('#finishers_m').empty();
+                $('#finishers_f').empty();
+                $('#finishers_all').empty();
+                $.each(json, function(index, val) {
+                    /* iterate through array or object */
+                    var result = this.first_name + ' ' + this.last_name + ' ' + this.gender + ' ' + this.finish_time;
+                    console.log(result);
+                    var info = "<li>"+result+"</li>";
+                    $("#finishers_all").append(info);
+                    if(this.gender == 'm'){
+                        $(info).appendTo('#finishers_m');
+                    }
+                    else{
+                        $(info).appendTo('#finishers_f');
+                    }
+
+                });
+
+        }
             
-    //     }
-    // });
-    $.getJSON("chapter9_service.php", function(json) {
+    }
+  });
+    /*   version 2: using shorthand ajax method: $.getJSON()
+    note: $.each() is used for non-jQuery collection, and .each() is used for jQuery collection--elements mathced with your selectors
+    for more information about these two method, please refer to: http://learn.jquery.com/using-jquery-core/iterating/
+    or https://www.evernote.com/l/AD5tsgIvgOdPZb38XV-IBiKGG2BcY_cnZ_g
+     */
+    /*$.getJSON("chapter9_service.php", function(json) {
             //var runners = $.parseJSON(json);
             //alert(runners);
             // json.each(function(index, el) {
             //     var runner = $.parseJSON(this);
             //     alert(runner);
             // });
-        if(json.runners.length > 0){
+        if(json.length > 0){
             $('#finishers_m').empty();
             $('#finishers_f').empty();
             $('#finishers_all').empty();
-            $.each(json.runners, function(index, val) {
-                /* iterate through array or object */
-                var result = this.fname + ' ' + this.lname + ' ' + this.gender + ' ' + this.time;
+            $.each(json, function(index, val) {
+                /* iterate through array or object *
+                var result = this.first_name + ' ' + this.last_name + ' ' + this.gender + ' ' + this.finish_time;
                 console.log(result);
                 var info = "<li>"+result+"</li>";
                 $("#finishers_all").append(info);
@@ -164,7 +185,7 @@ function getDBRacers(){
             });
 
         }
-    });
+    });*/
     getTimeAjax();
     
 }
