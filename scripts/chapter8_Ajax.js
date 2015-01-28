@@ -27,11 +27,11 @@ $(document).ready(function() {
         /* serialize the data collect from form */
         var serializeResult = $("#addRunner").serializeArray();
         /* $.post to server */
-        $.post('chapter9_service.php', serializeResult, function(json) {
-            if (json.status == "fail") {
+        $.post('chapter9_service.php?action=addRunner', serializeResult, function(json) {
+            if (json.statusCode == "fail") {
                 alert(json.message);
             }
-            if(json.status == "success"){
+            if(json.statusCode == "success"){
                 alert(json.message);
                 clearInputs();
             }
@@ -155,7 +155,7 @@ function getDBRacers(){
     for more information about these two method, please refer to: http://learn.jquery.com/using-jquery-core/iterating/
     or https://www.evernote.com/l/AD5tsgIvgOdPZb38XV-IBiKGG2BcY_cnZ_g
      */
-    $.getJSON("chapter9_service.php", function(json) {
+    $.getJSON("chapter9_service.php?action=getRunners", function(json) {
         if(json.length > 0){
             $('#finishers_m').empty();
             $('#finishers_f').empty();
