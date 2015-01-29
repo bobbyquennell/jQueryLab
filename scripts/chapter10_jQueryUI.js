@@ -14,6 +14,7 @@ $(document).ready(function() {
         $( "#distance" ).val(ui.value +" ft.");
       }
     });
+
     $( "#slider_weight" ).slider({
       //range: "min",
       min: 0,
@@ -24,6 +25,7 @@ $(document).ready(function() {
         $( "#weight" ).val(ui.value +" lbs.");
       }
     });
+
     $( "#slider_height" ).slider({
       //range: "min",
       min: 0,
@@ -34,6 +36,7 @@ $(document).ready(function() {
         $( "#height" ).val(ui.value +" ft.");
       }
     });
+
     $( "#slider_latitude" ).slider({
       //range: "min",
       min: -90,
@@ -44,6 +47,7 @@ $(document).ready(function() {
         $( "#latitude" ).val(ui.value);
       }
     });
+
     $( "#slider_longitude" ).slider({
       //range: "min",
       min: -180,
@@ -54,6 +58,37 @@ $(document).ready(function() {
         $( "#longitude" ).val(ui.value);
       }
     });
+    
+    // $( "#slider_colorR" ).slider({
+    //   //range: "min",
+    //   min: 0,
+    //   max: 255,
+    //   value: 0,
+    //   step:1,
+    //   slide: function( event, ui ) {
+    //     $( "#creatureColorR" ).val(ui.value);
+    //   }
+    // });
+    // $( "#slider_colorG" ).slider({
+    //   //range: "min",
+    //   min: 0,
+    //   max: 255,
+    //   value: 0,
+    //   step:1,
+    //   slide: function( event, ui ) {
+    //     $( "#creatureColorG" ).val(ui.value);
+    //   }
+    // });
+    // $( "#slider_colorB" ).slider({
+    //   //range: "min",
+    //   min: 0,
+    //   max: 255,
+    //   value: 0,
+    //   step:1,
+    //   slide: function( event, ui ) {
+    //     $( "#creatureColorB" ).val(ui.value);
+    //   }
+    // });
     $("#distance").val($("#slider_dist").slider("value")+" ft.");
     $("#weight").val($("#slider_weight").slider("value")+" lbs.");
     $("#height").val($("#slider_height").slider("value")+" ft.");

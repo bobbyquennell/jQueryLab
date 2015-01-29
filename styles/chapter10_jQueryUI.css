@@ -17,3 +17,18 @@ body {
     background: transparent;
     padding-bottom: 15px;
 }
+//color slider styles
+#slider_dist, #slider_weight, #slider_height {
+margin-bottom:14px;
+}
+#swatch {
+width: 75px;
+height: 75px;
+background-image: none;
+}
+#slider_colorR .ui-slider-range { background: #ef2929; }
+#slider_colorR .ui-slider-handle { border-color: #ef2929; }
+#slider_colorG .ui-slider-range { background: #8ae234; }
+#slider_colorG .ui-slider-handle { border-color: #8ae234; }
+#slider_colorB .ui-slider-range { background: #729fcf; }
+#slider_colorB .ui-slider-handle { border-color: #729fcf; }
