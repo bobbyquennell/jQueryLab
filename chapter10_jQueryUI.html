@@ -2,22 +2,22 @@
 <html> 
   <head>
     <title>Submit Your Cryptid Sighting</title>
-    <link rel="stylesheet" type="text/css" href="style/chapter10_jQueryUI.css" />
+    <link rel="stylesheet" type="text/css" href="styles/chapter10_jQueryUI.css" />
   <link type="text/css" href="jquery-ui-1.11.2.custom/jquery-ui.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="ui-widget-header ui-corner-top  ui-corner-bottom"> 
+    <div class="ui-widget-header ui-corner-top  ui-corner-bottom form_pad"> 
         <h2>Submit Your Cryptid Sighting</h2>
         <h3>Fill out the form below and click "Enter" to Submit</h3>
     </div>
 
 
-    <form id="form" name="form" method="post" action="sightings.php">
+    <form id="form" name="form"  method="post" action="sightings.php">
     
-        <div class="ui-widget-content "> 
+        <div class="ui-widget-content form_pad"> 
             <h3>CRYPTID SIGHTING DATA</h3>  
         </div>
-        <div class="ui-widget-content ">        
+        <div class="ui-widget-content form_pad">        
                     <h3>Date of Sighting:</h3>
                         <input  type="text" name="sighting_date" id="datepicker" />
                     
@@ -32,24 +32,32 @@
                        </div>
                         
                     <h3>Distance from Creature (in ft.):</h3>
-                        
+                        <input type="text" id="distance" name ="distance" class="just_display" readonly="readonly"/>
+                        <div id="slider_dist"></div>
     
                     <h3>Creature Weight (in lbs.):</h3>
+                        <input type="text" class="just_display" id="weight" name ="weight" readonly/>
+                        <div id="slider_weight"></div>
                         
                     <h3>Creature Height (in ft.):</h3>
-                        
+                        <input type="text" class="just_display" id="height" name ="height" readonly/>
+                        <div id="slider_height"></div>
                     <h3>Color of Creature:</h3>
                         
         </div>
-        <div class="ui-widget-content ">    
+        <div class="ui-widget-content form_pad">    
         <h3>CRYPTID LOCATION DATA</h3>
         </div>
-        <div class="ui-widget-content ">
-                <h3>Latitude of Sighting:</h3>                        
+        <div class="ui-widget-content form_pad">
+                <h3>Latitude of Sighting:</h3>
+                    <input type="text" class="just_display" id="latitude" name ="latitude" readonly/>
+                    <div id="slider_latitude"></div>                        
                 <h3>Longitude of Sighting:</h3>
+                    <input type="text" class="just_display" id="longitude" name ="longitude" readonly/>
+                    <div id="slider_longitude"></div> 
         </div>
                 
-        <div class="ui-widget-header ui-corner-top  ui-corner-bottom"> 
+        <div class="ui-widget-header ui-corner-top  ui-corner-bottom form_pad"> 
             <button type="submit">Submit</button>
         </div>  
     </form>
