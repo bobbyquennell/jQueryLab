@@ -60,7 +60,7 @@ $(document).ready(function() {
     });
     
     // $( "#slider_colorR" ).slider({
-    //   //range: "min",
+    //   range: "min",
     //   min: 0,
     //   max: 255,
     //   value: 0,
@@ -89,6 +89,14 @@ $(document).ready(function() {
     //     $( "#creatureColorB" ).val(ui.value);
     //   }
     // });
+    $( "#slider_colorR, #slider_colorG, #slider_colorB" ).slider({
+      orientation:"horizontal",
+      range: "min",
+      max: 255,
+      value: 127,
+      slide: refreshSwatch,
+      change: refreshSwatch
+    });
     $("#distance").val($("#slider_dist").slider("value")+" ft.");
     $("#weight").val($("#slider_weight").slider("value")+" lbs.");
     $("#height").val($("#slider_height").slider("value")+" ft.");
@@ -96,3 +104,7 @@ $(document).ready(function() {
     $("#longitude").val($("#slider_longitude").slider("value"));
 
 });
+
+function refreshSwatch(){
+
+}
