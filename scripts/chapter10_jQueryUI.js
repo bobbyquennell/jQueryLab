@@ -1,6 +1,9 @@
 $(document).ready(function() {
     $("#datepicker").datepicker({changeMonth:true, changeYear:true});
     $("#type_select").buttonset();
+    ///// two type of selectors to location the submit button below
+    //$("button[type='submit']").button();//version1.
+    $("button:submit").button();//version 2
     /*$("#radio1").button();
     $("#radio2").button();
     $("#radio3").button();*/
