@@ -102,9 +102,25 @@ $(document).ready(function() {
     $("#height").val($("#slider_height").slider("value")+" ft.");
     $("#latitude").val($("#slider_latitude").slider("value"));
     $("#longitude").val($("#slider_longitude").slider("value"));
+    $("#creatureColorR").val($("#slider_colorR").slider("value"));
+    $("#creatureColorG").val($("#slider_colorG").slider("value"));
+    $("#creatureColorB").val($("#slider_colorB").slider("value"));
+    $("#slider_colorR").slider("value",127);
 
 });
 
 function refreshSwatch(){
-
+    var red = $("#slider_colorR").slider("value");
+    var green = $("#slider_colorG").slider("value");
+    var blue = $("#slider_colorB").slider("value");
+    var my_rgb = d2h(red).toString() + d2h(green).toString()+d2h(blue).toString();
+    my_rgb = my_rgb.toUpperCase();
+    $("#creatureColorR").val(red);
+    $("#creatureColorG").val(green);
+    $("#creatureColorB").val(blue);
+    $("#color_val").val("#"+my_rgb);
+    $("#swatch").css('background-color', "#"+my_rgb);
+}
+function d2h(number){
+    return number.toString(16);
 }
